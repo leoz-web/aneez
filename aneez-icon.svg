@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="grad-main" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0b3d91;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1976d2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#42a5f5;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="grad-highlight" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff; stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#ffffff; stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Shadow Filters -->
+    <filter id="shadow1" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.4" />
+    </filter>
+    <filter id="shadow-inner" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+      <feOffset dx="0" dy="2" result="offsetblur" />
+      <feComposite in="SourceGraphic" in2="offsetblur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Background Rounded Rectangle -->
+  <rect x="0" y="0" width="512" height="512" rx="64" ry="64" fill="url(#grad-main)" filter="url(#shadow1)" />
+  
+  <!-- Glow Circles Around Center -->
+  <circle cx="256" cy="256" r="140" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="10" />
+  <circle cx="256" cy="256" r="170" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="6" />
+  <circle cx="256" cy="256" r="200" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="4" />
+  
+  <!-- Wide Inverted Magnet -->
+  <g transform="translate(256,256) scale(1,-1)">
+    <!-- Main Magnet Body -->
+    <path d="M-80,-60 a80,60 0 0,1 160,0 v80 h-30 v-80 a50,50 0 0,0 -100,0 v80 h-30 v-80" fill="#ffffff" filter="url(#shadow-inner)" />
+    <!-- Poles -->
+    <rect x="-80" y="0" width="40" height="60" fill="#f44336" rx="6" />
+    <rect x="40" y="0" width="40" height="60" fill="#f44336" rx="6" />
+  </g>
+  
+  <!-- Gloss Overlay -->
+  <path d="M0,0 L512,0 L512,256 C512,150 362,150 256,256 C150,362 0,362 0,256 Z" fill="white" opacity="0.08" />
+  
+  <!-- Decorative stars/dots -->
+  <circle cx="120" cy="220" r="5" fill="#ffffff" opacity="0.25" />
+  <circle cx="380" cy="300" r="4" fill="#ffffff" opacity="0.2" />
+  <circle cx="200" cy="150" r="6" fill="#ffffff" opacity="0.15" />
+  <circle cx="330" cy="180" r="3" fill="#ffffff" opacity="0.12" />
+  <circle cx="280" cy="400" r="5" fill="#ffffff" opacity="0.15" />
+  <circle cx="180" cy="380" r="3" fill="#ffffff" opacity="0.12" />
+  
+  <!-- Gradients reflections -->
+  <ellipse cx="256" cy="200" rx="220" ry="90" fill="url(#grad-highlight)" opacity="0.06" />
+  <ellipse cx="256" cy="300" rx="220" ry="90" fill="url(#grad-highlight)" opacity="0.06" />
+  
+  <!-- Decorative lines -->
+  <line x1="100" y1="400" x2="412" y2="100" stroke="#ffffff" stroke-opacity="0.02" stroke-width="2" />
+  <line x1="50" y1="256" x2="462" y2="256" stroke="#ffffff" stroke-opacity="0.03" stroke-width="3" />
+  <line x1="256" y1="50" x2="256" y2="462" stroke="#ffffff" stroke-opacity="0.03" stroke-width="3" />
+  
+  <!-- Final Glow Layer -->
+  <circle cx="256" cy="256" r="210" fill="none" stroke="white" stroke-opacity="0.02" stroke-width="10" />
+</svg>
